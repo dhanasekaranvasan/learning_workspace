@@ -53,16 +53,8 @@ The actual calculation is handed off to highly optimized, **pre-compiled C** and
 
 ### 0-Dimention (Scalar)
 
-```
-import numpy as np
+`import numpy as np`
 
-def output(arr):
-    print(arr)
-    print(arr.ndim)
-    print(arr.dtype)
-    print(arr.shape)
-    print(arr.size)
-```
 |        Code         |  Output  |
 | ------------------- | -------- |
 | `arr = np.array(5)` |          |
@@ -149,25 +141,14 @@ def output(arr):
 | `arr2 = np.array(2)`       |            |          |
 | `arr3 = np.array("hello")` |            |          |
 | `arr4 = np.array('Hello')` |            |          |
-| `print(arr3 == arr4)`      | `5 == 2`   | `False`  |
-| `print(arr3 != arr4)`      | `5 != 2`   | `True`   |
+| `print(arr3 == arr4)`      | `==`       | `False`  |
+| `print(arr3 != arr4)`      | `!=`       | `True`   |
 | `print(arr1 > arr2)`       | `5 > 2`    | `True`   |
 | `print(arr1 < arr2)`       | `5 < 2`    | `Flase`  |
 | `print(arr1 >= arr2)`      | `5 >= 2`   | `True`   |
 | `print(arr1 <= arr2)`      | `5 <= 2`   | `False`  |
 
 ### 1-Dimention (element at [position])
-
-```
-import numpy as np
-
-def output(arr):
-    print(arr)
-    print(arr.ndim)
-    print(arr.dtype)
-    print(arr.shape)
-    print(arr.size)
-```
 
 |                Code               |       Output      |
 | --------------------------------- | ----------------- |
@@ -214,24 +195,93 @@ def output(arr):
 - support dtypes: int, float, uint
 - bool: False = 0, True = 1
 
-|               Code                 |    Operation     |       Output        |
-| ---------------------------------- | ---------------- | ------------------- |
-| `arr1 = np.array([6, False, 7])`   | `[6, False, 7]`  |                     |
-| `arr2 = np.array([1, 4.4, True])`  | `[1, 4.4, True]` |                     |
-| `print(arr1 + arr2)`               | `+`              | `[7.  4.4 8. ]`     |
-| `print(arr1 - arr2)`               | `- `             | `[ 5.  -4.4  6. ]`  |
-| `print(arr1 * arr2)`               | `* `             | `[6. 0. 7.]`        |
-| `print(arr1 % arr2)`               | `%`              | `[0. 0. 0.]`        |
-| `print(arr1 / arr2)`               | `/`              | `[6. 0. 7.]`        |
-| `print(arr1 // arr2)`              | `//`             | `[6. 0. 7.]`        |
+|               Code                 |  Operation  |       Output     |
+| ---------------------------------- | ----------- | ---------------- |
+| `arr1 = np.array([6, False, 7])`   |             | `[6, False, 7]`  |
+| `arr2 = np.array([1, 4.4, True])`  |             | `[1, 4.4, True]` |
+| `print(arr1 + arr2)`               | `+`         | `[7.  4.4 8.]`   |
+| `print(arr1 - arr2)`               | `- `        | `[5. -4.4  6.]`  |
+| `print(arr1 * arr2)`               | `* `        | `[6. 0. 7.]`     |
+| `print(arr1 % arr2)`               | `%`         | `[0. 0. 0.]`     |
+| `print(arr1 / arr2)`               | `/`         | `[6. 0. 7.]`     |
+| `print(arr1 // arr2)`              | `//`        | `[6. 0. 7.]`     |
 
-|               Code              |    Operation   |           Output         |
-| ------------------------------- | -------------- | ------------------------ |
-| `arr1 = np.array([5, 6, 7, 8])` | `[5, 6, 7, 8]` |                          |
-| `arr2 = np.array([1, 2, 3, 4])` | `[1, 2, 3, 4]` |                          |
-| `print(arr1 + arr2)`            | `+`            | `[6 8 10 12]`            |
-| `print(arr1 - arr2)`            | `- `           | `[4 4 4 4]`              |
-| `print(arr1 * arr2)`            | `* `           | `[5 12 21 32]`           |
-| `print(arr1 % arr2)`            | `%`            | `[0 0 1 0]`              |
-| `print(arr1 / arr2)`            | `/`            | `[5. 3. 2.33333333 2. ]` |
-| `print(arr1 // arr2)`           | `//`           | `[5 3 2 2]`              |
+|               Code              |  Operation  |            Output           |
+| ------------------------------- | ----------- | --------------------------- |
+| `arr1 = np.array([5, 6, 7, 8])` |             | `[5, 6, 7, 8]` |
+| `arr2 = np.array([1, 2, 3, 4])` |             | `[1, 2, 3, 4]` |
+| `print(arr1 + arr2)`            | `+`         | `[6  8 10 12]` |
+| `print(arr1 - arr2)`            | `- `        | `[4  4  4  4]` |
+| `print(arr1 * arr2)`            | `* `        | `[5 12 21 32]` |
+| `print(arr1 % arr2)`            | `%`         | `[0  0  1  0]` |
+| `print(arr1 / arr2)`            | `/`         | `[5. 3. 2.3 2.]` |
+| `print(arr1 // arr2)`           | `//`        | `[5  3  2  2]` |
+
+#### Comparison Operation (==, !=, <, >, >= <=)
+
+- supported dtypes: mix types (int, float, uint, str, bool)
+- 0 == 0.0 == False -> True
+- 1 == 1.0 == True  -> True
+
+|                  Code             |  Operation  |                  Output                 |
+| --------------------------------- | ----------- | --------------------------------------- |
+| `arr1 = np.array([1,2,3,4,7,6])`  |             | `[1,    2,     3,     4,     7,     6]` |
+| `arr2 = np.array([1,2,4,5,5,6])`  |             | `[1,    2,     4,     5,     5,     6]` |
+| `print(arr1 == arr2)`             | `==`        | `[ True  True False False  True  True]` |
+| `print(arr1 != arr2)`             | `!=`        | `[False False  True  True False False]` |
+| `print(arr1 > arr2)`              | `>`         | `[False False False False  True False]` |
+| `print(arr1 < arr2)`              | `<`         | `[False False  True  True False False]` |
+| `print(arr1 >= arr2)`             | `>=`        | `[ True  True False False  True  True]` |
+| `print(arr1 <= arr2)`             | `<=`        | `[ True  True  True  True  True  True]` |
+
+|                  Code                             |  Operation  |                  Output               |
+| ------------------------------------------------- | ----------- | ------------------------------------- |
+| `arr1 = np.array(["string",{1,3,4},1.7,False,1)`  |             | `["string", {1,3,4}, 1.7, False,  1]` |
+| `arr2 = np.array(["string",{1,3,4},1.6,0,True])`  |             | `["string", {1,3,4}, 1.6,  0,  True]` |
+| `print(arr1 == arr2)`                             | `==`        | `[ True   True  False   True   True]` |
+| `print(arr1 != arr2)`                             | `!=`        | `[False  False   True  False  False]` |
+| `print(arr1 > arr2)`                              | `>`         | `[False  False   True  False  False]` |
+| `print(arr1 < arr2)`                              | `<`         | `[False  False  False  False  False]` |
+| `print(arr1 >= arr2)`                             | `>=`        | `[ True   True   True   True   True]` |
+| `print(arr1 <= arr2)`                             | `<=`        | `[ True   True  False   True   True]` |
+
+
+### 2-Dimention (element at [position][position])
+
+|                     Code                     |       Output       |
+| -------------------------------------------- | ------------------ |
+| `arr = np.array([[1,2,3,4,5],[6,7,8,9,10]])` |                    |
+| `print(arr)`                                 | `[[ 1  2  3  4  5]`<br>`[ 6  7  8  9 10]]` |
+| `print(arr[1])`                              | `[ 6  7  8  9 10]` |
+| `print(arr[1][2])`                           | `8`                |
+| `print(arr.dtype)`                           | `int64`            |
+| `print(arr.ndim)`                            | `2`                |
+| `print(arr.shape)`                           | `(2, 5)`           |
+| `print(arr.size)`                            | `10`               |
+
+|                         Code                         |       Output       |
+| ---------------------------------------------------- | ------------------ |
+| `arr = np.array([[4.5, 6.7],[8.9, 1.2],[2.3, 3.4]])` |                    |
+| `print(arr)`                                         | `[[4.5 6.7]`<br>`[8.9 1.2]`<br>`[2.3 3.4]]` |
+| `print(arr[2])`                                      | `[2.3 3.4]`        |
+| `print(arr[2][1])`                                   | `3.4`              |
+| `print(arr.dtype)`                                   | `float64`          |
+| `print(arr.ndim)`                                    | `2`                |
+| `print(arr.shape)`                                   | `(3, 2)`           |
+| `print(arr.size)`                                    | `6`                |
+
+#### Arithmetic Operation (+, -, *, %, /, //)
+
+- support dtypes: int, float, uint
+- bool: False = 0, True = 1
+
+|                        Code                       |  Operation  |              Output             |
+| ------------------------------------------------- | ----------- | ------------------------------- |
+| `arr1 = np.array([[1,2,False,4,5],[6,7,8,9,10]])` |             | `[[1 2 False 4 5][6 7 8 9 10]]` |
+| `arr2 = np.array([[10,5,9,4,8],[3,7,2,6,True]])`  |             | `[[10 5 9 4 8][3 7 2 6 True]]`  |
+| `print(arr1 + arr2)`                              | `+`         | `[[11  7  9  8 13][ 9 14 10 15 11]` |
+| `print(arr1 - arr2)`                              | `- `        | `[[-9 -3 -9  0 -3][ 3  0  6  3  9]]` |
+| `print(arr1 * arr2)`                              | `* `        | `[[10 10  0 16 40][18 49 16 54 10]]` |
+| `print(arr1 % arr2)`                              | `%`         | `[[1 2 0 0 5][0 0 0 3 0]]` |
+| `print(arr1 / arr2)`                              | `/`         | `[[0.1 0.4 0. 1. 0.625][2. 1. 4. 1.5 10.]]` |
+| `print(arr1 // arr2)`                             | `//`        | `[[ 0  0  0  1  0][ 2  1  4  1 10]]` |
