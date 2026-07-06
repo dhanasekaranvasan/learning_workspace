@@ -63,78 +63,79 @@ def output(arr):
     print(arr.shape)
     print(arr.size)
 ```
-|                Code                |     Output    |
-| ---------------------------------- | ------------- |
-| ```arr = np.array(5)```            |               |
-| ```print(arr)```                   | ```5```       |
-| ```print(arr.dtype)```             | ```int64```   |
-| ```print(arr.ndim)```              | ```0```       |
-| ```print(arr.shape)```             | ```()```      |
-| ```print(arr.size)```              | ```1```       |
+|        Code         |  Output  |
+| ------------------- | -------- |
+| `arr = np.array(5)` |          |
+| `print(arr)`        | `5`      |
+| `print(arr.dtype)`  | `int64`  |
+| `print(arr.ndim)`   | `0`      |
+| `print(arr.shape)`  | `()`     |
+| `print(arr.size)`   | `1`      |
 
-|                Code                |     Output    |
-| ---------------------------------- | ------------- |
-|  ```arr = np.array((2.5))```       |               |
-|  ```print(arr)```                  | ```2.5```     |
-|  ```print(arr.dtype)```            | ```float64``` |
-|  ```print(arr.ndim)```             | ```0```       |
-|  ```print(arr.shape)```            | ```()```      |
-|  ```print(arr.size)```             | ```1```       |
+|           Code            |   Output  |
+| ------------------------- | --------- |
+|  `arr = np.array((2.5))`  |           |
+|  `print(arr)`             | `2.5`     |
+|  `print(arr.dtype)`       | `float64` |
+|  `print(arr.ndim)`        | `0`       |
+|  `print(arr.shape)`       | `()`      |
+|  `print(arr.size)`        | `1`       |
 
-|                Code                |     Output    |
-| ---------------------------------- | ------------- |
-|  ```arr = np.array("Hello")```     |               |
-|  ```print(arr)```                  | ```Hello```   |
-|  ```print(arr.dtype)```            | ```<U5```     |
-|  ```print(arr.ndim)```             | ```0```       |
-|  ```print(arr.shape)```            | ```()```      |
-|  ```print(arr.size)```             | ```1```       |
+|              Code              |   Output |
+| ------------------------------ | -------- |
+|  `arr = np.array("Hello")`     |          |
+|  `print(arr)`                  | `Hello`  |
+|  `print(arr.dtype)`            | `<U5`    |
+|  `print(arr.ndim)`             | `0`      |
+|  `print(arr.shape)`            | `()`     |
+|  `print(arr.size)`             | `1`      |
 
-|                Code                |     Output    |
-| ---------------------------------- | ------------- |
-|  ```arr = np.array((True))```      |               |
-|  ```print(arr)```                  | ```True```    |
-|  ```print(arr.dtype)```            | ```bool```    |
-|  ```print(arr.ndim)```             | ```0```       |
-|  ```print(arr.shape)```            | ```()```      |
-|  ```print(arr.size)```             | ```1```       |
+|           Code            |   Output   |
+| ------------------------- | ---------- |
+|  `arr = np.array((True))` |            |
+|  `print(arr)`             | ```True``` |
+|  `print(arr.dtype)`       | ```bool``` |
+|  `print(arr.ndim)`        | ```0```    |
+|  `print(arr.shape)`       | ```()```   |
+|  `print(arr.size)`        | ```1```    |
 
 #### *`.astype()`* - change dtype
 
-|                Code                |     Before    |     After     |     Output    |
-| ---------------------------------- | ------------- | ------------- | ------------- |
-| ```arr = np.array(5)```            | ```dtype```   | ```dtype```   |               |
-| ```arr.astype(np.str_)```          | ```int64```   | ```<U21```    | ```5```       |
+|         Code          | Before  |  After  | Output  |
+| --------------------- | ------- | ------- | ------- |
+| `arr = np.array(5)`   | `dtype` | `dtype` |         |
+| `arr.astype(np.str_)` | `int64` | `<U21`  | `5`     |
 
-|                Code                |     Before    |     After     |     Output    |
-| ---------------------------------- | ------------- | ------------- | ------------- |
-| ```arr = np.array('Hello')```      | ```dtype```   | ```dtype```   |               |
-| ```arr.astype(np.str_)```          | ```<U5```     | ```bool```    | ```True```    |
+|            Code           | Before  |  After  | Output |
+| ------------------------- | ------- | ------- | ------ |
+| `arr = np.array('Hello')` | `dtype` | `dtype` |        |
+| `arr.astype(np.bool_)`    | `<U5`   | `bool`  | `True` |
 
-|                Code                |     Before    |     After     |     Output    |
-| ---------------------------------- | ------------- | ------------- | ------------- |
-| ```arr = np.array(True)```         | ```dtype```   | ```dtype```   |               |
-| ```arr.astype(np.int64)```          | ```bool```   | ```int64```   | ```1```       |
+|          Code          | Before  |  After  | Output |
+| ---------------------- | ------- | ------- | ------ |
+| `arr = np.array(True)` | `dtype` | `dtype` |        |
+| `arr.astype(np.int64)` | `bool`  | `int64` | `1`    |
 
-|                Code                |     Before    |     After     |     Output    |
-| ---------------------------------- | ------------- | ------------- | ------------- |
-| ```arr = np.array('6.2')```        | ```dtype```   | ```dtype```   |               |
-| ```arr.astype(np.float64)```       | ```<U3```     | ```float64``` | ```6.2```     |
+|            Code          | Before  |   After   |  Output  |
+| ------------------------ | ------- | --------- | -------- |
+| `arr = np.array('6.2')`  | `dtype` | `dtype`   |          |
+| `arr.astype(np.float64)` | `<U3`   | `float64` | `6.2`    |
 
 #### Arithmetic Operation (+, -, *, %, /, //)
 
 - Supported dtypes: int, float, uint
+- bool: True = 1, False = 0
 
-|            Code           |  Operation   |   Output  |
-| ------------------------- | ------------ | --------- |
-| ```arr1 = np.array(5)```  |              |           |
-| ```arr2 = np.array(2)```  |              |           |
-| ```print(arr1 + arr2)```  | ```5 + 2```  | ```7```   |
-| ```print(arr1 - arr2)```  | ```5 - 2```  | ```3```   |
-| ```print(arr1 * arr2)```  | ```5 * 2```  | ```10```  |
-| ```print(arr1 % arr2)```  | ```5 % 2```  | ```1```   |
-| ```print(arr1 / arr2)```  | ```5 / 2```  | ```2.5``` |
-| ```print(arr1 // arr2)``` | ```5 // 2``` | ```2```   |
+|          Code         | Operation | Output |
+| --------------------- | --------- | ------ |
+| `arr1 = np.array(5)`  |           |        |
+| `arr2 = np.array(2)`  |           |        |
+| `print(arr1 + arr2)`  | `5 + 2`   | `7`    |
+| `print(arr1 - arr2)`  | `5 - 2`   | `3`    |
+| `print(arr1 * arr2)`  | `5 * 2`   | `10`   |
+| `print(arr1 % arr2)`  | `5 % 2`   | `1`    |
+| `print(arr1 / arr2)`  | `5 / 2`   | `2.5`  |
+| `print(arr1 // arr2)` | `5 // 2`  | `2`    |
 
 #### Comparison Operation (==, !=, <, >, >= <=)
 
@@ -142,15 +143,95 @@ def output(arr):
 - 0 == 0.0 == False -> True
 - 1 == 1.0 == True  -> True
 
-|               Code             |   Operation  |    Output   |
-| ------------------------------ | ------------ | ------------|
-| ```arr1 = np.array(5)```       |              |             |
-| ```arr2 = np.array(2)```       |              |             |
-| ```arr3 = np.array("hello")``` |              |             |
-| ```arr4 = np.array('Hello')``` |              |             |
-| ```print(arr3 == arr4)```      | ```5 == 2``` | ```False``` |
-| ```print(arr3 != arr4)```      | ```5 != 2``` | ```True```  |
-| ```print(arr1 > arr2)```       | ```5 > 2```  | ```True```  |
-| ```print(arr1 < arr2)```       | ```5 < 2```  | ```Flase``` |
-| ```print(arr1 >= arr2)```      | ```5 >= 2``` | ```True```  |
-| ```print(arr1 <= arr2)```      | ```5 <= 2``` | ```False``` |
+|           Code             | Operation  |  Output  |
+| -------------------------- | ---------- | -------- |
+| `arr1 = np.array(5)`       |            |          |
+| `arr2 = np.array(2)`       |            |          |
+| `arr3 = np.array("hello")` |            |          |
+| `arr4 = np.array('Hello')` |            |          |
+| `print(arr3 == arr4)`      | `5 == 2`   | `False`  |
+| `print(arr3 != arr4)`      | `5 != 2`   | `True`   |
+| `print(arr1 > arr2)`       | `5 > 2`    | `True`   |
+| `print(arr1 < arr2)`       | `5 < 2`    | `Flase`  |
+| `print(arr1 >= arr2)`      | `5 >= 2`   | `True`   |
+| `print(arr1 <= arr2)`      | `5 <= 2`   | `False`  |
+
+### 1-Dimention (element at [position])
+
+```
+import numpy as np
+
+def output(arr):
+    print(arr)
+    print(arr.ndim)
+    print(arr.dtype)
+    print(arr.shape)
+    print(arr.size)
+```
+
+|                Code               |       Output      |
+| --------------------------------- | ----------------- |
+| `arr = np.array([1, 2, 3, 4, 5])` |                   |
+| `print(arr)`                      | `[1, 2, 3, 4, 5]` |
+| `print(arr[2])`                   | `3`               |
+| `print(arr.dtype)`                | `int64`           |
+| `print(arr.ndim)`                 | `1`               |
+| `print(arr.shape)`                | `(5, )`           |
+| `print(arr.size)`                 | `5`               |
+
+|                  Code                  |            Output            |
+| -------------------------------------- | ---------------------------- |
+| `arr = np.array((6.2, 7.1, 8.0, 9.5))` |                              |
+| `print(arr)`                           | `[6.2, 7.1, 8.0, 9.5, 10.8]` |
+| `print(arr[3])`                        | `9.5`                        |
+| `print(arr.dtype)`                     | `float64`                    |
+| `print(arr.ndim)`                      | `1`                          |
+| `print(arr.shape)`                     | `(4, )`                      |
+| `print(arr.size)`                      | `4`                          |
+
+|                            Code                                 |                     Output                      |
+| --------------------------------------------------------------- | ----------------------------------------------- |
+| `arr = np.array(["John", "Allen", "Vishal", "Karan", "Sekar"])` |                                                 |
+| `print(arr)`                                                    | `["John", "Allen", "Vishal", "Karan", "Sekar"]` |
+| `print(arr[3])`                                                 | `Sekar`                                         |
+| `print(arr.dtype)`                                              | `<U6`                                           |
+| `print(arr.ndim)`                                               | `1`                                             |
+| `print(arr.shape)`                                              | `(5, )`                                         |
+| `print(arr.size)`                                               | `5`                                             |
+
+|                          Code                            |                  Output                  |
+| -------------------------------------------------------- | ---------------------------------------- |
+| `arr = np.array([1, 0.8, "Hello", False, None, np.nan])` |                                          |
+| `print(arr)`                                             | `[1, 0.8, "Hello", False, None, np.nan]` |
+| `print(arr[0])`                                          | `1`                                      |
+| `print(arr.dtype)`                                       | `object`                                 |
+| `print(arr.ndim)`                                        | `1`                                      |
+| `print(arr.shape)`                                       | `(6, )`                                  |
+| `print(arr.size)`                                        | `6`                                      |
+
+#### Arithmetic Operation (+, -, *, %, /, //)
+
+- support dtypes: int, float, uint
+- bool: False = 0, True = 1
+
+|               Code                 |    Operation     |       Output        |
+| ---------------------------------- | ---------------- | ------------------- |
+| `arr1 = np.array([6, False, 7])`   | `[6, False, 7]`  |                     |
+| `arr2 = np.array([1, 4.4, True])`  | `[1, 4.4, True]` |                     |
+| `print(arr1 + arr2)`               | `+`              | `[7.  4.4 8. ]`     |
+| `print(arr1 - arr2)`               | `- `             | `[ 5.  -4.4  6. ]`  |
+| `print(arr1 * arr2)`               | `* `             | `[6. 0. 7.]`        |
+| `print(arr1 % arr2)`               | `%`              | `[0. 0. 0.]`        |
+| `print(arr1 / arr2)`               | `/`              | `[6. 0. 7.]`        |
+| `print(arr1 // arr2)`              | `//`             | `[6. 0. 7.]`        |
+
+|               Code              |    Operation   |           Output         |
+| ------------------------------- | -------------- | ------------------------ |
+| `arr1 = np.array([5, 6, 7, 8])` | `[5, 6, 7, 8]` |                          |
+| `arr2 = np.array([1, 2, 3, 4])` | `[1, 2, 3, 4]` |                          |
+| `print(arr1 + arr2)`            | `+`            | `[6 8 10 12]`            |
+| `print(arr1 - arr2)`            | `- `           | `[4 4 4 4]`              |
+| `print(arr1 * arr2)`            | `* `           | `[5 12 21 32]`           |
+| `print(arr1 % arr2)`            | `%`            | `[0 0 1 0]`              |
+| `print(arr1 / arr2)`            | `/`            | `[5. 3. 2.33333333 2. ]` |
+| `print(arr1 // arr2)`           | `//`           | `[5 3 2 2]`              |
